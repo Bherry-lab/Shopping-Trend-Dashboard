@@ -1,0 +1,30 @@
+Sub FilterGenderMale()
+    Dim pt As PivotTable
+    Dim ws As Worksheet
+    Dim pf As PivotField
+
+    For Each ws In ThisWorkbook.Worksheets
+        For Each pt In ws.PivotTables
+            On Error Resume Next
+            Set pf = pt.PivotFields("Gender")
+            pf.ClearAllFilters
+            pf.CurrentPage = "Male"
+        Next pt
+    Next ws
+End Sub
+
+Sub FilterGenderFemale()
+    Dim pt As PivotTable
+    Dim ws As Worksheet
+    Dim pf As PivotField
+
+    For Each ws In ThisWorkbook.Worksheets
+        For Each pt In ws.PivotTables
+            On Error Resume Next
+            Set pf = pt.PivotFields("Gender")
+            pf.ClearAllFilters
+            pf.CurrentPage = "Female"
+        Next pt
+    Next ws
+End Sub
+
